@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NajotEdu.Application.Abstraction;
 using NajotEdu.Domain.Entities;
 using NajotEdu.Infrastructure.Presistence.EntityTupeConfiguration;
 
 namespace NajotEdu.Infrastructure.Presistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
