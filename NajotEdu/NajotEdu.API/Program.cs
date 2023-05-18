@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 using Microsoft.OpenApi.Models;
 using NajotEdu.Application;
+=======
+>>>>>>> 0952f8cb34f80001a7cf33967d834159b9c35193
 using NajotEdu.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
+<<<<<<< HEAD
 
 
 // shu yerda swaggerga options qushib unga olingan tokenni 
@@ -49,6 +53,10 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
+=======
+builder.Services.AddSwaggerGen();
+builder.Services.AddInfrastructure(builder.Configuration);
+>>>>>>> 0952f8cb34f80001a7cf33967d834159b9c35193
 
 var app = builder.Build();
 
