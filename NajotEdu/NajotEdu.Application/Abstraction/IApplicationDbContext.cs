@@ -3,9 +3,9 @@ using NajotEdu.Domain.Entities;
 
 namespace NajotEdu.Application.Abstraction
 {
-                        // bu orqali biz prinspialni ishlagan
-                        // bulamiz va dbcontext qayerda kerak
-                        // bulsa shu orqali chaqirib olib ishlataveramiz
+    // bu orqali biz prinspialni ishlagan
+    // bulamiz va dbcontext qayerda kerak
+    // bulsa shu orqali chaqirib olib ishlataveramiz
     public interface IApplicationDbContext
     {
         DbSet<Attendence> Attendences { get; set; }

@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NajotEdu.Application.Abstraction;
 using NajotEdu.Application.Models;
@@ -17,14 +15,14 @@ namespace NajotEdu.API.Controllers
         {
             _studentService = studentService;
         }
-        
+
         [Authorize(Policy = "Admin")]
         [HttpPost]
 
         public async Task<IActionResult> CreateStudent(CreateStudentModel createStudentModel)
         {
             await _studentService.Create(createStudentModel);
-            
+
             return Ok();
         }
 
