@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace NajotEdu.Infrastructure.Migrations
 {
-    public partial class addedentities : Migration
+    public partial class AddedCRUD : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -138,6 +139,11 @@ namespace NajotEdu.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "FullName", "PasswordHash", "Role", "UserName" },
+                values: new object[] { 1, "Adminbek Adminov", "442975CD735175F7C42F91322F548F7C4A606B838A992381F3C9AB48A85576C1C1864E625A1A00A2D16359395B8321E52BF4DFFB6347341141633E07C197D3D8NajotTalimQalampir", 1, "Admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attendences_LessonId",

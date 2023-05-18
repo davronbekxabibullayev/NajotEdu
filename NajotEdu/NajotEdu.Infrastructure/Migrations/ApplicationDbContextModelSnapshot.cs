@@ -184,6 +184,16 @@ namespace NajotEdu.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FullName = "Adminbek Adminov",
+                            PasswordHash = "442975CD735175F7C42F91322F548F7C4A606B838A992381F3C9AB48A85576C1C1864E625A1A00A2D16359395B8321E52BF4DFFB6347341141633E07C197D3D8NajotTalimQalampir",
+                            Role = 1,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("NajotEdu.Domain.Entities.Attendence", b =>

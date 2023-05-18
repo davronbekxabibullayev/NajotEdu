@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NajotEdu.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230517125522_added authorithation")]
-    partial class addedauthorithation
+    [Migration("20230518133855_Added CRUD")]
+    partial class AddedCRUD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -191,7 +191,8 @@ namespace NajotEdu.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            PasswordHash = "999BD10B3BC249B5741AB1A662ACC00B225EBEF14E42A684CDDB49EE92DB096E2FFDF047EE79C59C4F6726D375494A5FF82E19288A5680EC4A3136F30C2752F2",
+                            FullName = "Adminbek Adminov",
+                            PasswordHash = "442975CD735175F7C42F91322F548F7C4A606B838A992381F3C9AB48A85576C1C1864E625A1A00A2D16359395B8321E52BF4DFFB6347341141633E07C197D3D8NajotTalimQalampir",
                             Role = 1,
                             UserName = "Admin"
                         });
