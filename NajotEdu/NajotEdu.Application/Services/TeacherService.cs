@@ -39,9 +39,9 @@ namespace NajotEdu.Application.Services
             return newTeacher.UserName;
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<int> Delete(int Id)
         {
-            var teacher = await _applicationDbContext.Users.FirstOrDefaultAsync(a => a.Id == id);
+            var teacher = await _applicationDbContext.Users.FirstOrDefaultAsync(a => a.Id == Id);
 
             if (teacher == null)
             {
@@ -64,10 +64,10 @@ namespace NajotEdu.Application.Services
                 }).ToListAsync();
         }
 
-        public async Task<TeacherViewModel> GetById(int id)
+        public async Task<TeacherViewModel> GetById(int Id)
         {
 
-            var teacher = await _applicationDbContext.Users.FirstOrDefaultAsync(a => a.Id == id);
+            var teacher = await _applicationDbContext.Users.FirstOrDefaultAsync(a => a.Id == Id);
 
             if (teacher == null)
             {

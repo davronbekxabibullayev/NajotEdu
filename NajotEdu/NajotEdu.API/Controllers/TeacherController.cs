@@ -21,38 +21,39 @@ namespace NajotEdu.API.Controllers
 
         public async Task<IActionResult> CreateTeacher(CreateTeacherModel createTeacherModel)
         {
-            await _teacherService.Create(createTeacherModel);
+            var result = await _teacherService.Create(createTeacherModel);
 
-            return Ok();
+            return Ok(result);
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateTeacher(UpdateTeacherModel updateTeacherModel)
         {
-            await _teacherService.Update(updateTeacherModel);
-            return Ok();
+            var result = await _teacherService.Update(updateTeacherModel);
+            return Ok(result);
         }
 
         [HttpDelete("{Id}")]
         public async Task<IActionResult> DeleteTeacher(int Id)
         {
-            await _teacherService.Delete(Id);
-            return Ok();
+            var result = await _teacherService.Delete(Id);
+            return Ok(result);
         }
 
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(int Id)
         {
-            await _teacherService.GetById(Id);
-            return Ok();
+            var teacher = await _teacherService.GetById(Id);
+           
+            return Ok(teacher);
         }
 
         [HttpGet("GetAll")]
 
         public async Task<IActionResult> GetAll()
         {
-            await _teacherService.GetAll();
-            return Ok();
+            var result = await _teacherService.GetAll();
+            return Ok(result);
         }
     }
 }
