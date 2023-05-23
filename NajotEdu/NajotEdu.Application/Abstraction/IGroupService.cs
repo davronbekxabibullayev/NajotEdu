@@ -2,8 +2,7 @@
 
 namespace NajotEdu.Application.Abstraction
 {
-    public interface IGroupService : ICRUDService<int, GroupViewModel, CreatGroupModel, UpdateViewModel>
+    public interface IGroupService : ICRUDService<int, GroupViewModel, CreateGroupModel, UpdateGroupViewModel>
     {
-
     }
 }

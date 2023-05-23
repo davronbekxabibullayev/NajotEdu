@@ -1,6 +1,6 @@
 ﻿namespace NajotEdu.Application.Models
 {
-    public class UpdateViewModel
+    public class UpdateGroupViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
