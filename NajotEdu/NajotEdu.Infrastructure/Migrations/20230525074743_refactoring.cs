@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace NajotEdu.Infrastructure.Migrations
 {
-    public partial class AddedCRUD : Migration
+    public partial class refactoring : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +17,8 @@ namespace NajotEdu.Infrastructure.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     FullName = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Birthdate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    CreatedDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    Birthdate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     PhoneNumber = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: true)
                 },
                 constraints: table =>
@@ -48,8 +49,8 @@ namespace NajotEdu.Infrastructure.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
-                    StartDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     TeacherId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -69,8 +70,8 @@ namespace NajotEdu.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    StartDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    EndDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    StartDateTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    EndDateTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     GroupId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -90,7 +91,7 @@ namespace NajotEdu.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    JoinedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    JoinedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     IsPayed = table.Column<bool>(type: "boolean", nullable: false),
                     StudentId = table.Column<int>(type: "integer", nullable: false),
                     GroupId = table.Column<int>(type: "integer", nullable: false)
@@ -118,7 +119,7 @@ namespace NajotEdu.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    JoinedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    JoinedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     StudentId = table.Column<int>(type: "integer", nullable: false),
                     LessonId = table.Column<int>(type: "integer", nullable: false)
                 },

@@ -9,8 +9,8 @@
         }
         public int Id { get; set; }
         public string FullName { get; set; }
-        public DateTimeOffset Birthdate { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTime Birthdate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string PhoneNumber { get; set; }
 
         public ICollection<Attendence> Attenants { get; set; }

@@ -7,6 +7,7 @@ namespace NajotEdu.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     //    [Authorize(Policy = "Admin")] bu yerda tursa bu quyidagi barcha controllerlarga tasir qiladi 
     public class TeacherController : ControllerBase
     {

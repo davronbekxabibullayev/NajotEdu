@@ -3,6 +3,7 @@
     public class GroupViewModel
     {
         public string Name { get; set; }
+        public string TeacherFullName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }

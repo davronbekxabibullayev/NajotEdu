@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NajotEdu.Infrastructure\NajotEdu.Infrastructure.csproj" />
+	  <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8" />
   </ItemGroup>
 
 </Project>

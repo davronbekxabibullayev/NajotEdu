@@ -31,7 +31,7 @@ namespace NajotEdu.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("JoinedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("LessonId")
                         .HasColumnType("integer");
@@ -57,14 +57,14 @@ namespace NajotEdu.Infrastructure.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("EndDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
                     b.Property<DateTime>("StartDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("integer");
@@ -84,14 +84,14 @@ namespace NajotEdu.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTimeOffset>("EndDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("GroupId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTimeOffset>("StartDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");
 
@@ -108,11 +108,11 @@ namespace NajotEdu.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTimeOffset>("Birthdate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("Birthdate")
+                        .HasColumnType("timestamp without time zone");
 
-                    b.Property<DateTimeOffset>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -143,7 +143,7 @@ namespace NajotEdu.Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("JoinedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("integer");

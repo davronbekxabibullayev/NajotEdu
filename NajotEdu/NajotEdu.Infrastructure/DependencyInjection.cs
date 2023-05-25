@@ -62,7 +62,10 @@ namespace NajotEdu.Infrastructure
                     policy.RequireClaim("Role", UserRole.Admin.ToString());
                 });
             });
-
+            
+            // bu yerda bu ishimiz utib ketgan vaqt bilan ishlamayman deganini uchirib quyamiz
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+ 
             return services;
         }
     }

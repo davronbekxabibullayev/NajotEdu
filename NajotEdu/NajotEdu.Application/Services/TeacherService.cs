@@ -67,7 +67,7 @@ namespace NajotEdu.Application.Services
         public async Task<TeacherViewModel> GetById(int Id)
         {
 
-            var teacher = await _applicationDbContext.Users.FirstOrDefaultAsync(a => a.Id == Id);
+            var teacher = await _applicationDbContext.Users.FirstOrDefaultAsync(a => a.Id == Id && a.Role == Domain.Enum.UserRole.Teacher);
 
             if (teacher == null)
             {
