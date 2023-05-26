@@ -4,13 +4,13 @@
     {
         public Lesson()
         {
-            Attenants = new HashSet<Attendence>();
+            Attenants = new HashSet<Attendance>();
         }
         public int Id { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public int GroupId { get; set; }
         public Group Group { get; set; }
-        public ICollection<Attendence> Attenants { get; set; }
+        public ICollection<Attendance> Attenants { get; set; }
     }
 }

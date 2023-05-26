@@ -10,6 +10,7 @@ using NajotEdu.Infrastructure.Presistence;
 using NajotEdu.Infrastructure.Presistence.Apsructions;
 using NajotEdu.Infrastructure.Presistence.Services;
 using NajotEdu.Infrastructure.Providers;
+using NajotEdu.Infrastructure.Services;
 using System.Text;
 
 namespace NajotEdu.Infrastructure
@@ -29,6 +30,8 @@ namespace NajotEdu.Infrastructure
             services.AddScoped<ITokenService, JWTService>();
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped<IHashProvider, HashProvider>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>(); // bu teacherning Idsi lessondagi
+                                                                           // teacherIdsiga mos kelsa gina davomat qilishga yul beradi
 
             // app.UseAuthentication(); - middlewarening nostroykasini qilamiz bu eng oddiylaridan
 
@@ -62,10 +65,10 @@ namespace NajotEdu.Infrastructure
                     policy.RequireClaim("Role", UserRole.Admin.ToString());
                 });
             });
-            
+
             // bu yerda bu ishimiz utib ketgan vaqt bilan ishlamayman deganini uchirib quyamiz
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
- 
+
             return services;
         }
     }

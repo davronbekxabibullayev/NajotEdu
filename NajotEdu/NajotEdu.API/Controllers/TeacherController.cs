@@ -45,7 +45,7 @@ namespace NajotEdu.API.Controllers
         public async Task<IActionResult> GetById(int Id)
         {
             var teacher = await _teacherService.GetById(Id);
-           
+
             return Ok(teacher);
         }
 

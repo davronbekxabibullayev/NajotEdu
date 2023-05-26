@@ -1,6 +1,4 @@
-﻿using NajotEdu.Domain.Entities;
-
-namespace NajotEdu.Application.Models
+﻿namespace NajotEdu.Application.Models
 {
     public class CreateGroupModel
     {
@@ -9,7 +7,7 @@ namespace NajotEdu.Application.Models
         public DateTime EndDate { get; set; }
         public int TeacherId { get; set; }
         public TimeSpan LessonStartTime { get; set; }
-        public TimeSpan LessonEndTime { get ; set; }
+        public TimeSpan LessonEndTime { get; set; }
     }
 
 }
