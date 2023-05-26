@@ -1,7 +1,8 @@
-﻿    using Microsoft.EntityFrameworkCore;
-    using NajotEdu.Application.Abstraction;
-    using NajotEdu.Application.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using NajotEdu.Application.Abstraction;
+using NajotEdu.Application.Models;
 using NajotEdu.Application.Models.Group;
+using NajotEdu.Application.Models.Lesson;
 using NajotEdu.Domain.Entities;
 
 namespace NajotEdu.Application.Services
@@ -13,7 +14,7 @@ namespace NajotEdu.Application.Services
         {
             _dbContext = dbContext;
         }
-       
+
 
         public async Task<int> Delete(int Id)
         {
@@ -58,13 +59,13 @@ namespace NajotEdu.Application.Services
             }
 
             var model = new GroupViewModel()
-                                            {
-                                                EndDate = group.EndDate,
-                                                StartDate = group.StartDate,
-                                                TeacherFullName = "group.Teacher.FullName",
-                                                Name = group.Name
-                                            };
-            
+            {
+                EndDate = group.EndDate,
+                StartDate = group.StartDate,
+                TeacherFullName = "group.Teacher.FullName",
+                Name = group.Name
+            };
+
             return model;
         }
         public async Task<string> Create(CreateGroupModel createModel)
@@ -139,7 +140,7 @@ namespace NajotEdu.Application.Services
                 var today = DateTime.UtcNow;
 
             }
-            
+
             _dbContext.Groups.Update(group);
             await _dbContext.SaveChangesAsync();
             return group.Id;
@@ -149,7 +150,7 @@ namespace NajotEdu.Application.Services
         {
             var student = await _dbContext.Students.FirstAsync(a => a.Id == model.StudentId); ;
 
-            if(student == null)
+            if (student == null)
             {
                 throw new Exception("student is not found");
             }
@@ -167,7 +168,7 @@ namespace NajotEdu.Application.Services
                 GroupId = groupId,
                 IsPayed = model.IsPayed,
             };
-            
+
             _dbContext.StudentGroups.Add(studentGroup);
             await _dbContext.SaveChangesAsync();
         }
@@ -184,6 +185,18 @@ namespace NajotEdu.Application.Services
             _dbContext.StudentGroups.Remove(studentGroup);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<List<LessonModel>> GetLessons(int groupId)
+        {
+            var lessons = await _dbContext.Lessons.Where(a => a.GroupId == groupId).Select(a => new LessonModel()
+            {
+                Id = a.Id,
+                GroupId = a.GroupId,
+                EndDateTime = a.EndDateTime,
+                StartDateTime = a.StartDateTime,
+            }).ToListAsync();
+
+            return lessons;
+        }
     }
 }
- 

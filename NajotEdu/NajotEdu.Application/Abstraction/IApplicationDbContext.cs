@@ -8,7 +8,7 @@ namespace NajotEdu.Application.Abstraction
     // bulsa shu orqali chaqirib olib ishlataveramiz
     public interface IApplicationDbContext
     {
-        DbSet<Attendence> Attendences { get; set; }
+        DbSet<Attendance> Attendances { get; set; }
         DbSet<Group> Groups { get; set; }
         DbSet<Lesson> Lessons { get; set; }
         DbSet<Student> Students { get; set; }

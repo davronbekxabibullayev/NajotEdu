@@ -3,7 +3,9 @@ using NajotEdu.Application;
 using NajotEdu.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddHttpContextAccessor(); // bu bizga hohlagan joyizdan contextni
+                                           // olishga ruhsat beradi. Aks holda faqat ControllerBase dan 
+                                           // voris olgan classlarda ishltilgan bulardi
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

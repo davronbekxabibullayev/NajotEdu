@@ -20,7 +20,12 @@ namespace NajotEdu.Infrastructure.Presistence.Services
         {
             var claims = new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.Name, user.UserName),
+                //new Claim(JwtRegisteredClaimNames.UniqueName, user.Id.ToString()), // buni teacherId attendance qilayotgan
+                                                                                    // teacherning Id siga tugri kelishi
+                                                                                    // kerakligi uchun qushdik
+                new Claim(JwtRegisteredClaimNames.Name, user.Id.ToString()),        // Bu yerda user.Id sini
+                                                                                    // JwtRegisteredClaimNames.Namega biriktirib quydik 
+                                                                                    // va filtrqilganimizda shunga qarab tekshirib olamiz
                 new Claim("Role", user.Role.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };

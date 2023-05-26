@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using NajotEdu.Application.Abstraction;
 using NajotEdu.Domain.Entities;
 using NajotEdu.Infrastructure.Presistence.EntityTupeConfiguration;
@@ -13,20 +12,20 @@ namespace NajotEdu.Infrastructure.Presistence
         {
         }
 
-    /*    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        /*    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            {
 
-            var builder = new ConfigurationBuilder();
-            builder.SetBasePath(Directory.GetCurrentDirectory());
-            builder.AddJsonFile("appsettings.json");
-            IConfiguration Configuration = builder.Build();
+                var builder = new ConfigurationBuilder();
+                builder.SetBasePath(Directory.GetCurrentDirectory());
+                builder.AddJsonFile("appsettings.json");
+                IConfiguration Configuration = builder.Build();
 
-            optionsBuilder.UseNpgsql(
-                Configuration.GetConnectionString("DefaultConnection"));
-            base.OnConfiguring(optionsBuilder);
-        }
-    */
-        public DbSet<Attendence> Attendences { get; set; }
+                optionsBuilder.UseNpgsql(
+                    Configuration.GetConnectionString("DefaultConnection"));
+                base.OnConfiguring(optionsBuilder);
+            }
+        */
+        public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Student> Students { get; set; }
