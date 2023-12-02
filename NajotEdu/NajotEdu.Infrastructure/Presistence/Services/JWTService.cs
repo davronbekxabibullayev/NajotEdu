@@ -24,7 +24,7 @@ namespace NajotEdu.Infrastructure.Presistence.Services
                                                                                     // teacherning Id siga tugri kelishi
                                                                                     // kerakligi uchun qushdik
                 new Claim(JwtRegisteredClaimNames.Name, user.Id.ToString()),        // Bu yerda user.Id sini
-                                                                                    // JwtRegisteredClaimNames.Namega biriktirib quydik 
+                                                                                    // "JwtRegisteredClaimNames.Name"ga biriktirib quydik 
                                                                                     // va filtrqilganimizda shunga qarab tekshirib olamiz
                 new Claim("Role", user.Role.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

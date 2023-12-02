@@ -30,7 +30,7 @@ namespace NajotEdu.Application.Services
                 .ThenInclude(a => a.GroupStudents)          // bu yerda tablitsalarni join qilib olindi
                 .SelectMany(a => a.Group.GroupStudents)     // a bu yerda Lesson dan  undan kegin ICollection<StudentGroup> GroupStudents collectionni olyapmiz
                 .Select(a => a.StudentId)                   // va bu collectionning har bitta classning studentId larini 
-                .ToListAsync();                             // listga yigib oldim bu adilar ruyhatiga aylandi
+                .ToListAsync();                             // listga yigib oldim bu "Id"ilar ruyhatiga aylandi
 
             var attendenceList = new List<Attendance>();
             var attendanceTrue = new List<Attendance>();

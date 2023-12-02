@@ -14,7 +14,7 @@ namespace NajotEdu.Infrastructure.Providers
 
             HashAlgorithmName hashAlgorithm = HashAlgorithmName.SHA512;
 
-            var salt = new byte[keySize]; // bu yerda saltni biz uzgarmaw qilib quydik aslida
+            var salt = new byte[keySize]; // bu yerda saltni biz uzgarmas qilib quydik aslida
                                           // kegingi qatordagi kabi bulishi va u ham 1 ta proporty
                                           // qilib alohid columnda saqlab olishimiz va unga ham
                                           // alohida tekshiruv quyishmiz kerak.
