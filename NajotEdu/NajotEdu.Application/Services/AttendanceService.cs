@@ -17,6 +17,7 @@ namespace NajotEdu.Application.Services
         public async Task<IEnumerable<Attendance>> CheckAsync(DoAttendenceCheckModel model)
         {
             var lesson = await _context.Lessons.Include(a => a.Group).FirstOrDefaultAsync(a => a.Id == model.LessonId);
+            
             if (lesson == null || _currentUserService.UserId != lesson.Group.TeacherId)
             {
                 throw new Exception("You don't have that group");
@@ -57,7 +58,7 @@ namespace NajotEdu.Application.Services
                 }
             }
 
-            _context.Attendances.AddRangeAsync(attendenceList);
+            await _context.Attendances.AddRangeAsync(attendenceList);
 
             await _context.SaveChangesAsync();
 

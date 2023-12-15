@@ -2,6 +2,8 @@ using Microsoft.OpenApi.Models;
 using NajotEdu.Application;
 using NajotEdu.Infrastructure;
 
+Console.Title = "NajotEdu API";
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor(); // bu bizga hohlagan joyizdan contextni
                                            // olishga ruhsat beradi. Aks holda faqat ControllerBase dan 

@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.0.1",
+    "generators": {
+      "najotEdu/v1.0": {
+        "generatorName": "csharp",
+        "output": "NajotEdu.Client",
+        "inputSpec": "http://localhost:7019/swagger/v1/swagger.json",
+        "additionalProperties": {
+          "targetFramework": "net6.0",
+          "packageName": "NajotEdu.Client",
+          "library": "httpclient",
+          "equatable": false,
+          "validatable": false,
+          "netCoreProjectFile": true
+        }
+      }
+    }
+  }
+}
