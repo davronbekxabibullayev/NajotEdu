@@ -7,7 +7,7 @@
       "najotEdu/v1.0": {
         "generatorName": "csharp",
         "output": "NajotEdu.Client",
-        "inputSpec": "http://localhost:7019/swagger/v1/swagger.json",
+        "inputSpec": "http://localhost:5170/swagger/V1/swagger.json",
         "additionalProperties": {
           "targetFramework": "net6.0",
           "packageName": "NajotEdu.Client",

@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{A107
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotEdu.Client", "NajotEdu.Client\src\NajotEdu.Client\NajotEdu.Client.csproj", "{CA01C7AD-247D-49C8-8F05-C06D6F2FA442}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{99FE0891-31B6-4E1F-B5FC-5D1402A696AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99FE0891-31B6-4E1F-B5FC-5D1402A696AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99FE0891-31B6-4E1F-B5FC-5D1402A696AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA01C7AD-247D-49C8-8F05-C06D6F2FA442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA01C7AD-247D-49C8-8F05-C06D6F2FA442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA01C7AD-247D-49C8-8F05-C06D6F2FA442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA01C7AD-247D-49C8-8F05-C06D6F2FA442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

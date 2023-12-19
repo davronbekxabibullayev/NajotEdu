@@ -1,0 +1,628 @@
+openapi: 3.0.1
+info:
+  description: NajotEdu description
+  title: NajotEdu
+  version: V1
+servers:
+- url: /
+security:
+- Bearer: []
+paths:
+  /api/Attendance/Check:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DoAttendenceCheckModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DoAttendenceCheckModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DoAttendenceCheckModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Attendance
+  /api/Auth/Login:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Auth
+  /api/Group:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateGroupModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+    put:
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Id:
+                style: form
+              Name:
+                style: form
+              StartDate:
+                style: form
+              EndDate:
+                style: form
+              TeacherId:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_Group_put_request'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+  /api/Group/{groupId}/student:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              studentId:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_Group__groupId__student_delete_request'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddStudentGroupModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AddStudentGroupModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AddStudentGroupModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+  /api/Group/{Id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: Id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              Id:
+                style: form
+            schema:
+              $ref: '#/components/schemas/_api_Group__Id__delete_request'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: Id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+  /api/Group/GetAll:
+    get:
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+  /api/Group/{groupId}/lessons:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: groupId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Group
+  /api/Student:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStudentModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateStudentModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateStudentModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Student
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStudentModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStudentModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateStudentModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Student
+  /api/Student/{Id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: Id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Student
+  /api/Student/GetById:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: Id
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Student
+  /api/Student/GetAll:
+    get:
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Student
+  /api/Teacher:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeacherModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeacherModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateTeacherModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Teacher
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeacherModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeacherModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeacherModel'
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Teacher
+  /api/Teacher/{Id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: Id
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Teacher
+  /api/Teacher/GetById:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: Id
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Teacher
+  /api/Teacher/GetAll:
+    get:
+      responses:
+        "200":
+          description: Success
+      tags:
+      - Teacher
+components:
+  schemas:
+    AddStudentGroupModel:
+      additionalProperties: false
+      example:
+        studentId: 0
+        isPayed: true
+        joinedDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        studentId:
+          format: int32
+          type: integer
+        isPayed:
+          type: boolean
+        joinedDate:
+          format: date-time
+          type: string
+      type: object
+    AttendenceCheckModel:
+      additionalProperties: false
+      example:
+        studentId: 6
+        hasParticipated: true
+      properties:
+        studentId:
+          format: int32
+          type: integer
+        hasParticipated:
+          type: boolean
+      type: object
+    CreateGroupModel:
+      additionalProperties: false
+      example:
+        lessonEndTime:
+          milliseconds: 5
+          hours: 5
+          seconds: 7
+          totalDays: 9.301444243932576
+          ticks: 6
+          totalHours: 3.616076749251911
+          totalMilliseconds: 2.027123023002322
+          totalMinutes: 4.145608029883936
+          minutes: 2
+          days: 1
+          totalSeconds: 7.386281948385884
+        teacherId: 0
+        endDate: 2000-01-23T04:56:07.000+00:00
+        name: name
+        lessonStartTime:
+          milliseconds: 5
+          hours: 5
+          seconds: 7
+          totalDays: 9.301444243932576
+          ticks: 6
+          totalHours: 3.616076749251911
+          totalMilliseconds: 2.027123023002322
+          totalMinutes: 4.145608029883936
+          minutes: 2
+          days: 1
+          totalSeconds: 7.386281948385884
+        startDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        name:
+          nullable: true
+          type: string
+        startDate:
+          format: date-time
+          type: string
+        endDate:
+          format: date-time
+          type: string
+        teacherId:
+          format: int32
+          type: integer
+        lessonStartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        lessonEndTime:
+          $ref: '#/components/schemas/TimeSpan'
+      type: object
+    CreateStudentModel:
+      additionalProperties: false
+      example:
+        createdDate: 2000-01-23T04:56:07.000+00:00
+        phoneNumber: phoneNumber
+        fullName: fullName
+        birthDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        fullName:
+          type: string
+        createdDate:
+          format: date-time
+          type: string
+        birthDate:
+          format: date-time
+          type: string
+        phoneNumber:
+          type: string
+      required:
+      - fullName
+      - phoneNumber
+      type: object
+    CreateTeacherModel:
+      additionalProperties: false
+      example:
+        password: password
+        fullName: fullName
+        userName: userName
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+        fullName:
+          nullable: true
+          type: string
+      required:
+      - password
+      - userName
+      type: object
+    DoAttendenceCheckModel:
+      additionalProperties: false
+      example:
+        checks:
+        - studentId: 6
+          hasParticipated: true
+        - studentId: 6
+          hasParticipated: true
+        lessonId: 0
+      properties:
+        lessonId:
+          format: int32
+          type: integer
+        checks:
+          items:
+            $ref: '#/components/schemas/AttendenceCheckModel'
+          nullable: true
+          type: array
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      example:
+        password: password
+        userName: userName
+      properties:
+        userName:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+      type: object
+    TimeSpan:
+      additionalProperties: false
+      example:
+        milliseconds: 5
+        hours: 5
+        seconds: 7
+        totalDays: 9.301444243932576
+        ticks: 6
+        totalHours: 3.616076749251911
+        totalMilliseconds: 2.027123023002322
+        totalMinutes: 4.145608029883936
+        minutes: 2
+        days: 1
+        totalSeconds: 7.386281948385884
+      properties:
+        ticks:
+          format: int64
+          type: integer
+        days:
+          format: int32
+          type: integer
+        hours:
+          format: int32
+          type: integer
+        milliseconds:
+          format: int32
+          type: integer
+        minutes:
+          format: int32
+          type: integer
+        seconds:
+          format: int32
+          type: integer
+        totalDays:
+          format: double
+          readOnly: true
+          type: number
+        totalHours:
+          format: double
+          readOnly: true
+          type: number
+        totalMilliseconds:
+          format: double
+          readOnly: true
+          type: number
+        totalMinutes:
+          format: double
+          readOnly: true
+          type: number
+        totalSeconds:
+          format: double
+          readOnly: true
+          type: number
+      type: object
+    UpdateStudentModel:
+      additionalProperties: false
+      example:
+        phoneNumber: phoneNumber
+        fullName: fullName
+        id: 0
+        birthDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          format: int32
+          type: integer
+        fullName:
+          nullable: true
+          type: string
+        birthDate:
+          format: date-time
+          type: string
+        phoneNumber:
+          nullable: true
+          type: string
+      type: object
+    UpdateTeacherModel:
+      additionalProperties: false
+      example:
+        password: password
+        fullName: fullName
+        id: 0
+        userName: userName
+      properties:
+        id:
+          format: int32
+          type: integer
+        userName:
+          nullable: true
+          type: string
+        password:
+          nullable: true
+          type: string
+        fullName:
+          nullable: true
+          type: string
+      type: object
+    _api_Group_put_request:
+      properties:
+        Id:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        StartDate:
+          format: date-time
+          type: string
+        EndDate:
+          format: date-time
+          type: string
+        TeacherId:
+          format: int32
+          type: integer
+      type: object
+    _api_Group__groupId__student_delete_request:
+      properties:
+        studentId:
+          format: int32
+          type: integer
+      type: object
+    _api_Group__Id__delete_request:
+      properties:
+        Id:
+          format: int32
+          type: integer
+      type: object
+  securitySchemes:
+    Bearer:
+      bearerFormat: JWT
+      description: Bearer Authentication
+      scheme: Bearer
+      type: http
+
